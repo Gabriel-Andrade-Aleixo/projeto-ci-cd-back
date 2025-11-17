@@ -17,16 +17,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
+      
       - name: Instalar dependências
         run: npm install
+
+      - name: Mostrar tag detectada
+        run: echo "Deploy automático iniciado para a tag ${GITHUB_REF_NAME}"
 
       - name: Deploy no Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-        run: |
-          curl -X POST "https://api.render.com/v1/services/${SERVICE_ID}/deploys" \
+          run: |
+            echo "Enviando requisição para redeploy..."
+            curl -X POST "https://api.render.com/v1/services/${SERVICE_ID}/deploys" \
             -H "Accept: application/json" \
             -H "Authorization: Bearer ${RENDER_API_KEY}" \
             -d ''
+            echo "Deploy disparado com sucesso!"
