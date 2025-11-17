@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 // Endpoint opcional de saúde
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', version: process.env.APP_VERSION || 'dev' });
+  res.json({ status: 'ok!'});
 });
 
 const port = process.env.PORT || 3000;
