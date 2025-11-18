@@ -3,7 +3,7 @@ name: Deploy Automático Render
 on:
   push:
     tags:
-      - "v*.*.*" # executa apenas quando uma nova versão semântica for criada
+      - "v*.*.*"
 
 jobs:
   deploy:
@@ -17,9 +17,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
-      - name: Instalar dependências
-        run: npm install
 
       - name: Mostrar tag detectada
         run: echo "Deploy automático iniciado para a tag ${GITHUB_REF_NAME}"
