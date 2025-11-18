@@ -1,63 +1,53 @@
+---
 
-API em Node.js de demonstração de CI/CD.
+# API em Node.js – Demonstração
 
-## Endpoints
-- `GET /` → `{ "mensagem": "API online e integrada com CI/CD!" }`
-- `GET /health` → `{ "status": "ok!"}`
+Esta é uma API simples feita em **Node.js**, utilizada para testes e demonstrações.
+
+🔗 **API online:**
+[https://projeto-ci-cd-back-mvjv.onrender.com/](https://projeto-ci-cd-back-mvjv.onrender.com/)
 
 ---
 
-# 🚀 Guia de Execução e Deploy
+## Endpoints
 
-## 🖥️ Rodando o projeto localmente
+* `GET /` → `{ "mensagem": "API online e integrada com CI/CD!" }`
+* `GET /v1/health` → `{ "status": "okay!" }`
 
-Para iniciar o ambiente de desenvolvimento:
+---
+
+# 🚀 Como rodar o projeto localmente
+
+Instale as dependências:
 
 ```bash
 npm install
+```
+
+Execute em modo desenvolvimento:
+
+```bash
 npm run dev
 ```
 
-Depois, acesse em seu navegador:
+Depois, abra no navegador:
 
 👉 **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## 🐳 Criar imagem Docker (opcional)
+# 🐳 Rodando com Docker
 
-Caso queira rodar via Docker:
+### Criar a imagem Docker:
 
 ```bash
 docker build -t projeto-ci-cd-back .
-docker run -p 3000:3000 -e ALLOWED_ORIGIN='*' projeto-ci-cd-back
 ```
 
----
-
-## 📦 Fluxo de Deploy (Render + GitHub Actions)
-
-### 1️⃣ Configure os *Secrets* no GitHub
-
-Acesse: **Settings → Secrets → Actions**
-Crie:
-
-* `RENDER_API_KEY`
-* `RENDER_SERVICE_ID`
-
----
-
-### 2️⃣ Gere uma nova tag semântica
+### Executar o container:
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+docker run -p 3000:3000 -e ALLOWED_ORIGIN='*' projeto-ci-cd-back
 ```
-
----
-
-### 3️⃣ Deploy automático
-
-Ao enviar a tag, o workflow **release.yml** será acionado e fará o deploy no Render automaticamente. 🎉
 
 ---
