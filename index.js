@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 });
 
 // Endpoint opcional de saúde
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok!'});
+app.get('/v1/health', (req, res) => {
+  res.json({ status: 'okay!'});
 });
 
 const port = process.env.PORT || 3000;
