@@ -3,9 +3,13 @@ import cors from 'cors';
 
 const app = express();
 
-// Configuração de CORS - defina o domínio do front (ex.: https://seu-front.vercel.app)
-const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
-app.use(cors({ origin: allowedOrigin }));
+// Configuração de CORS
+const corsOptions = {
+  origin: "*",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
   res.json({ mensagem: 'API online e integrada com CI/CD!' });
