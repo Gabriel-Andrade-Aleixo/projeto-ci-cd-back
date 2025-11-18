@@ -35,19 +35,3 @@ Depois, abra no navegador:
 👉 **[http://localhost:3000](http://localhost:3000)**
 
 ---
-
-# 🐳 Rodando com Docker
-
-### Criar a imagem Docker:
-
-```bash
-docker build -t projeto-ci-cd-back .
-```
-
-### Executar o container:
-
-```bash
-docker run -p 3000:3000 -e ALLOWED_ORIGIN='*' projeto-ci-cd-back
-```
-
----
